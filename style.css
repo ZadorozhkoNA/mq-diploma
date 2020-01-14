@@ -1,0 +1,173 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url( './sources/fonts/OpenSans-Regular.woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url( './sources/fonts/OpenSans-Bold.woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Общие настройки */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', 'Arial', sans-serif;
+  font-weight: 400;
+  background-color: #ffffff;
+  font-size: 15px;
+  color: #000000;
+  line-height: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.header_background {
+  background-position: top center;
+  background-size: cover;
+  background-color: #000000;
+}
+
+.relative {
+  position: relative;
+}
+
+.blind::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000739;
+  opacity: 0.8;
+}
+
+
+/* Шапка сайта */
+.header_page {
+  margin: 0;
+  padding: 0;
+}
+
+.logo_container {
+  display: flex;
+  margin-bottom: 135px;
+}
+
+.header_page-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.svg-color {
+  fill: #ffffff;
+}
+
+.header_page-title {
+  font-size: 28px;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 85px;
+}
+
+.left {
+  display: block;
+}
+
+.right {
+  display: block;
+  margin-left: calc( 50% - 94px );
+}
+
+.menu_page-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu_page-list-item {
+  margin: 0;
+  padding: 0;
+}
+
+.menu_page-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #5e42b0;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.menu_page-link-text {
+  margin-left: 8px;
+}
+
+.menu_page-text-up,
+.menu_page-text-down {
+  display: block;
+}
+
+.icon_market {
+  height: 24px;
+  margin-left: calc( 50% - 55px );
+}
+
+@media (max-width: 640px) {
+
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Шапка сайта */
+
+  .header_background {
+    background-image: url("./sources/img/football_767.jpg");
+  }
+
+  .header_page {
+    padding-top: 30px;
+    padding-bottom: 85px;
+  }
+
+  .logo-img {
+    height: 36px;
+  }
+
+  .menu_page-list-item:nth-child(n+2) {
+    margin-top: 15px;
+  }
+
+  .menu_page-link-text {
+    font-size: 8px;
+  }
+
+  .menu_page-text-up {
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 10px;
+  }
+
+  .menu_page-text-down {
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 10px;
+  }
+}
