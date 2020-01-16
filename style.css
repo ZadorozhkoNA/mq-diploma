@@ -220,7 +220,7 @@ html, body {
   order: 1;
   color: #e7e7e7;
   font-size: 28px;
-  font-weight: 700px;
+  font-weight: 700;
   text-transform: uppercase;
   padding-left: var( --side-padding );
   padding-right: var( --side-padding );
