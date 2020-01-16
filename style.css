@@ -21,7 +21,6 @@ html, body {
   background-color: #ffffff;
   font-size: 15px;
   color: #000000;
-  line-height: 18px;
 }
 
 * {
@@ -50,10 +49,13 @@ html, body {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: #000739;
-  opacity: 0.8;
+  background-color: #0a0e34;
+  opacity: 0.9;
 }
 
+:root {
+--side-padding: 20px;
+}
 
 /* Шапка сайта */
 .header_page {
@@ -63,10 +65,13 @@ html, body {
 
 .logo_container {
   display: flex;
+}
+
+.logo_container-header {
   margin-bottom: 135px;
 }
 
-.header_page-logo {
+.page-logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -129,26 +134,211 @@ html, body {
   margin-left: calc( 50% - 55px );
 }
 
+/* Основной контент */
+
+.sport_title {
+  margin: 0;
+  font-size: 50px;
+  line-height: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #e7e7e7;
+}
+
+.sport_article {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.sport_article-header {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.sport_article-title {
+  font-size: 23px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #c1c1c1;
+  margin: 0;
+  padding: 0;
+}
+
+.number {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 14px;
+  margin-right: 10px;
+  color: #000000;
+}
+
+.sport:nth-child(odd) .sport_article:last-child {
+  background-color: #5e42b0;
+}
+
+.sport:nth-child(even) .sport_article:last-child {
+  background-color: #090c35;
+}
+
+.number::after {
+  content: "";
+  display: block;
+  margin-top: 2px;
+  height: 4px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #5e42b0;
+}
+
+.sport:nth-child(odd) .sport_article:last-child .number::after {
+  background-color: #ffffff;
+}
+
+.sport:nth-child(even) .sport_article:last-child .number,
+.sport:nth-child(even) .sport_article:last-child p {
+  color: #ffffff;
+}
+
+.sport:nth-child(even) > .sport_article:last-child .number::after {
+  background-color: #ffffff;
+}
+
+.i-don-t-know-what-to-call-it {
+  margin: 0;
+  padding: 0;
+}
+
+.paragraph_article {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.paragraph_title {
+  order: 1;
+  color: #e7e7e7;
+  font-size: 28px;
+  font-weight: 700px;
+  text-transform: uppercase;
+  padding-left: var( --side-padding );
+  padding-right: var( --side-padding );
+}
+
+.paragraph_img {
+
+}
+
+.paragraph_text {
+  order: 1;
+  padding-left: var( --side-padding );
+  padding-right: var( --side-padding );
+}
+
+.paragraph_text p {
+  font-size: 20px;
+}
+
+.paragraph_number-box {
+  display: flex;
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #5e42b0;
+  left: var( --side-padding );
+  bottom: -10px;
+}
+
+.paragraph_number-text {
+  display: block;
+  margin: auto;
+  color: #f5f6f7;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.paragraph_number-text::after {
+  content: "";
+  display: block;
+  margin-top: 2px;
+  height: 4px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #8f7bc8;
+}
+
+/* Подвал */
+.footer_page {
+  padding-top: 100px;
+  padding-bottom: 10px;
+}
+
+.footer-logo {
+  display: flex;
+  height: 74px;
+  width: 74px;
+  background: linear-gradient(0deg, #50379b, #7555d5);
+  border-radius: 20px;
+}
+
+.logo_container-footer-up {
+  margin-bottom: 50px;
+}
+
+.logo_container-footer-down {
+  margin-top: 80px;
+}
+
+.footer_box-text {
+  margin-bottom: 73px;
+}
+
+.footer_big-text {
+  display: block;
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-text {
+  display: block;
+  color: #9b8ec1;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+}
+
 @media (max-width: 640px) {
-
-  .container {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
   /* Шапка сайта */
 
   .header_background {
     background-image: url("./sources/img/football_767.jpg");
   }
 
+  .footer_background {
+    background-image: url("./sources/img/game_767.jpg");
+  }
+
   .header_page {
+    padding-left: var( --side-padding );
+    padding-right: var( --side-padding );
     padding-top: 30px;
     padding-bottom: 85px;
   }
 
-  .logo-img {
+  .logo-img-header {
     height: 36px;
+  }
+
+  .logo-img-footer {
+    height: 50px;
+    margin: auto;
   }
 
   .menu_page-list-item:nth-child(n+2) {
@@ -170,4 +360,34 @@ html, body {
     font-weight: 700;
     line-height: 10px;
   }
+
+    /* Основной контент */
+    .sport_title {
+      padding-left: var( --side-padding );
+      padding-right: var( --side-padding );
+    }
+
+    .sport_article {
+      padding-left: var( --side-padding );
+      padding-right: var( --side-padding );
+    }
+
+    .sport_box {
+      margin: 0;
+      padding: 0;
+    }
+
+    .sport_picture {
+      display: flex;
+    }
+
+    .sport_img {
+      height: 240px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .paragraph_img {
+      width: 100%;
+    }
 }
