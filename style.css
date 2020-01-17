@@ -1,13 +1,17 @@
 @font-face {
   font-family: 'Open Sans';
-  src: url( './sources/fonts/OpenSans-Regular.woff');
+  src: url('./sources/fonts/OpenSans-Regular.woff2') format('woff2'),
+     url('./sources/fonts/OpenSans-Regular.ttf')  format('truetype'),
+     url('./sources/fonts/OpenSans-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Open Sans';
-  src: url( './sources/fonts/OpenSans-Bold.woff');
+  src: url('./sources/fonts/OpenSans-Bold.woff2') format('woff2'),
+     url('./sources/fonts/OpenSans-Bold.ttf')  format('truetype'),
+     url('./sources/fonts/OpenSans-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
@@ -54,7 +58,8 @@ html, body {
 }
 
 :root {
---side-padding: 20px;
+--side-padding-320: 20px;
+--side-padding-640: 30px;
 }
 
 /* Шапка сайта */
@@ -65,10 +70,6 @@ html, body {
 
 .logo_container {
   display: flex;
-}
-
-.logo_container-header {
-  margin-bottom: 135px;
 }
 
 .page-logo {
@@ -82,20 +83,13 @@ html, body {
 }
 
 .header_page-title {
-  font-size: 28px;
   line-height: normal;
   text-transform: uppercase;
   color: #ffffff;
-  margin-bottom: 85px;
 }
 
-.left {
+.left, .right {
   display: block;
-}
-
-.right {
-  display: block;
-  margin-left: calc( 50% - 94px );
 }
 
 .menu_page-list {
@@ -115,9 +109,6 @@ html, body {
   text-decoration: none;
   color: #ffffff;
   background-color: #5e42b0;
-  border-radius: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
 }
 
 .menu_page-link-text {
@@ -127,11 +118,7 @@ html, body {
 .menu_page-text-up,
 .menu_page-text-down {
   display: block;
-}
-
-.icon_market {
-  height: 24px;
-  margin-left: calc( 50% - 55px );
+  text-transform: uppercase;
 }
 
 /* Основной контент */
@@ -222,8 +209,8 @@ html, body {
   font-size: 28px;
   font-weight: 700;
   text-transform: uppercase;
-  padding-left: var( --side-padding );
-  padding-right: var( --side-padding );
+  padding-left: var( --side-padding-320 );
+  padding-right: var( --side-padding-320 );
 }
 
 .paragraph_img {
@@ -232,8 +219,8 @@ html, body {
 
 .paragraph_text {
   order: 1;
-  padding-left: var( --side-padding );
-  padding-right: var( --side-padding );
+  padding-left: var( --side-padding-320 );
+  padding-right: var( --side-padding-320 );
 }
 
 .paragraph_text p {
@@ -246,7 +233,7 @@ html, body {
   width: 70px;
   height: 70px;
   background-color: #5e42b0;
-  left: var( --side-padding );
+  left: var( --side-padding-320 );
   bottom: -10px;
 }
 
@@ -272,6 +259,8 @@ html, body {
 .footer_page {
   padding-top: 100px;
   padding-bottom: 10px;
+  padding-left: var( --side-padding-320 );
+  padding-right: var( --side-padding-320 );
 }
 
 .footer-logo {
@@ -326,10 +315,23 @@ html, body {
   }
 
   .header_page {
-    padding-left: var( --side-padding );
-    padding-right: var( --side-padding );
+    padding-left: var( --side-padding-320 );
+    padding-right: var( --side-padding-320 );
     padding-top: 30px;
     padding-bottom: 85px;
+  }
+
+  .header_page-title {
+    font-size: 28px;
+    margin-bottom: 85px;
+  }
+
+  .right {
+    margin-left: calc( 50% - 94px );
+  }
+
+  .logo_container-header {
+    margin-bottom: 135px;
   }
 
   .logo-img-header {
@@ -345,31 +347,40 @@ html, body {
     margin-top: 15px;
   }
 
+  .menu_page-link {
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .icon_market {
+    height: 24px;
+    margin-left: calc( 50% - 55px );
+  }
+
   .menu_page-link-text {
     font-size: 8px;
   }
 
   .menu_page-text-up {
-    text-transform: uppercase;
     font-weight: 400;
     line-height: 10px;
   }
 
   .menu_page-text-down {
-    text-transform: uppercase;
     font-weight: 700;
     line-height: 10px;
   }
 
     /* Основной контент */
     .sport_title {
-      padding-left: var( --side-padding );
-      padding-right: var( --side-padding );
+      padding-left: var( --side-padding-320 );
+      padding-right: var( --side-padding-320 );
     }
 
     .sport_article {
-      padding-left: var( --side-padding );
-      padding-right: var( --side-padding );
+      padding-left: var( --side-padding-320 );
+      padding-right: var( --side-padding-320 );
     }
 
     .sport_box {
@@ -390,4 +401,84 @@ html, body {
     .paragraph_img {
       width: 100%;
     }
+}
+
+@media (min-width: 641px) and (max-width: 960px) {
+  /* Шапка сайта */
+
+  .header_background {
+    background-image: url("./sources/img/football_767.jpg");
+  }
+
+  .header_page {
+    padding-left: var( --side-padding-640 );
+    padding-right: var( --side-padding-640 );
+    padding-top: 40px;
+    padding-bottom: 90px;
+  }
+
+  .header_page-title {
+    font-size: 64px;
+    margin-bottom: 310px;
+  }
+
+  .left {
+    margin-left: 60px;
+  }
+
+  .right {
+    margin-left: calc( 50% - 188px );
+  }
+
+  .logo-img-header {
+    height: 58px;
+  }
+
+  .logo_container-header {
+    margin-bottom: 175px;
+  }
+
+  .menu_page-list {
+    margin: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .menu_page-list-item {
+    display: block;
+    min-width: calc(50% - 15px);
+  }
+
+  .menu_page-list-item:nth-child(n+3) {
+    margin-top: 15px;
+  }
+
+  .icon_market {
+    height: 45px;
+  }
+
+  .menu_page-link {
+    justify-content: center;
+    padding-top: 17px;
+    padding-bottom: 17px;
+    border-radius: 40px;
+  }
+
+  .menu_page-link-text {
+    font-size: 14px;
+  }
+
+  .menu_page-text-up {
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .menu_page-text-down {
+    font-weight: 700;
+    line-height: 18px;
+  }
 }
