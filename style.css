@@ -1,3 +1,7 @@
+/* ----------------- */
+/* Продключение шрифтов */
+/* ----------------- */
+
 @font-face {
   font-family: 'Open Sans';
   src: url('./sources/fonts/OpenSans-Regular.woff2') format('woff2'),
@@ -16,7 +20,10 @@
   font-style: normal;
 }
 
+/* ----------------- */
 /* Общие настройки */
+/* ----------------- */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -36,10 +43,20 @@ html, body {
   padding: 0;
 }
 
-.header_background {
+.main_content,
+.header_page,
+.footer_page {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1920px;
+}
+
+.header_background,
+.footer_background {
   background-position: top center;
   background-size: cover;
   background-color: #000000;
+  background-repeat: no-repeat;
 }
 
 .relative {
@@ -57,23 +74,31 @@ html, body {
   opacity: 0.9;
 }
 
+/* ----------------- */
+/* Константы */
+/* ----------------- */
+
 :root {
+  /* отступы */
 --side-padding-320: 20px;
 --side-padding-640: 30px;
+--side-padding-960: 180px;
+/* размер прямоугольника */
+--width-960: 170px;
+--height-960: 150px;
 }
 
+/* ----------------- */
+/* Свойства для элементов, которые не зависят от размера экрана */
+/* ----------------- */
+
 /* Шапка сайта */
-.header_page {
-  margin: 0;
-  padding: 0;
-}
 
 .logo_container {
   display: flex;
 }
 
 .page-logo {
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -92,18 +117,7 @@ html, body {
   display: block;
 }
 
-.menu_page-list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.menu_page-list-item {
-  margin: 0;
-  padding: 0;
-}
-
-.menu_page-link {
+.market_box-link {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -111,12 +125,8 @@ html, body {
   background-color: #5e42b0;
 }
 
-.menu_page-link-text {
-  margin-left: 8px;
-}
-
-.menu_page-text-up,
-.menu_page-text-down {
+.market_box-text-up,
+.market_box-text-down {
   display: block;
   text-transform: uppercase;
 }
@@ -125,39 +135,30 @@ html, body {
 
 .sport_title {
   margin: 0;
-  font-size: 50px;
   line-height: normal;
   font-weight: 700;
   text-transform: uppercase;
   color: #e7e7e7;
 }
 
-.sport_article {
-  padding-top: 30px;
-  padding-bottom: 30px;
-}
-
 .sport_article-header {
-  margin: 0;
-  padding: 0;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .sport_article-title {
-  font-size: 23px;
   font-weight: 700;
   text-transform: uppercase;
   color: #c1c1c1;
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .number {
   display: block;
-  font-size: 14px;
   font-weight: 700;
-  line-height: 14px;
   margin-right: 10px;
   color: #000000;
 }
@@ -173,8 +174,6 @@ html, body {
 .number::after {
   content: "";
   display: block;
-  margin-top: 2px;
-  height: 4px;
   width: 100%;
   border-radius: 5px;
   background-color: #5e42b0;
@@ -184,18 +183,20 @@ html, body {
   background-color: #ffffff;
 }
 
-.sport:nth-child(even) .sport_article:last-child .number,
-.sport:nth-child(even) .sport_article:last-child p {
+.sport_article:last-child p {
   color: #ffffff;
 }
 
-.sport:nth-child(even) > .sport_article:last-child .number::after {
+.sport:nth-child(even) .sport_article:last-child .number {
+  color: #8765dd;
+}
+
+.sport .sport_article:last-child .number::after {
   background-color: #ffffff;
 }
 
-.i-don-t-know-what-to-call-it {
-  margin: 0;
-  padding: 0;
+.paragraph {
+
 }
 
 .paragraph_article {
@@ -204,44 +205,39 @@ html, body {
 }
 
 .paragraph_title {
-  order: 1;
   color: #e7e7e7;
-  font-size: 28px;
   font-weight: 700;
   text-transform: uppercase;
-  padding-left: var( --side-padding-320 );
-  padding-right: var( --side-padding-320 );
+}
+
+.paragraph-box {
+  width: 100%;
+}
+
+.paragraph_picture {
+  display: block;
 }
 
 .paragraph_img {
-
+  width: 100%;
+  object-fit: cover;
 }
 
 .paragraph_text {
-  order: 1;
-  padding-left: var( --side-padding-320 );
-  padding-right: var( --side-padding-320 );
+
 }
 
-.paragraph_text p {
-  font-size: 20px;
-}
-
-.paragraph_number-box {
+.paragraph_number-box,
+.paragraph_number-box_desk-top {
   display: flex;
   position: absolute;
-  width: 70px;
-  height: 70px;
   background-color: #5e42b0;
-  left: var( --side-padding-320 );
-  bottom: -10px;
 }
 
 .paragraph_number-text {
   display: block;
   margin: auto;
   color: #f5f6f7;
-  font-size: 14px;
   font-weight: 700;
 }
 
@@ -256,37 +252,15 @@ html, body {
 }
 
 /* Подвал */
-.footer_page {
-  padding-top: 100px;
-  padding-bottom: 10px;
-  padding-left: var( --side-padding-320 );
-  padding-right: var( --side-padding-320 );
-}
 
 .footer-logo {
   display: flex;
-  height: 74px;
-  width: 74px;
   background: linear-gradient(0deg, #50379b, #7555d5);
-  border-radius: 20px;
-}
-
-.logo_container-footer-up {
-  margin-bottom: 50px;
-}
-
-.logo_container-footer-down {
-  margin-top: 80px;
-}
-
-.footer_box-text {
-  margin-bottom: 73px;
 }
 
 .footer_big-text {
   display: block;
   color: #ffffff;
-  font-size: 32px;
   font-weight: 700;
   text-transform: uppercase;
   width: 100%;
@@ -296,15 +270,19 @@ html, body {
 .footer-text {
   display: block;
   color: #9b8ec1;
-  font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
   width: 100%;
   text-align: center;
 }
 
+/* ----------------- */
+/* Стили для mobile */
+/* ----------------- */
+
 @media (max-width: 640px) {
-  /* Шапка сайта */
+
+  /* Фоновые изображения */
 
   .header_background {
     background-image: url("./sources/img/football_767.jpg");
@@ -313,6 +291,8 @@ html, body {
   .footer_background {
     background-image: url("./sources/img/game_767.jpg");
   }
+
+  /* Шапка сайта mobile */
 
   .header_page {
     padding-left: var( --side-padding-320 );
@@ -323,31 +303,33 @@ html, body {
 
   .header_page-title {
     font-size: 28px;
-    margin-bottom: 85px;
+    margin-top: 0;
+    margin-bottom: 83px;
+  }
+
+  .left {
+    line-height: 1.3;
   }
 
   .right {
+    line-height: 1.3;
+    margin-top: 15px;
     margin-left: calc( 50% - 94px );
   }
 
   .logo_container-header {
-    margin-bottom: 135px;
+    margin-bottom: 125px;
   }
 
   .logo-img-header {
     height: 36px;
   }
 
-  .logo-img-footer {
-    height: 50px;
-    margin: auto;
-  }
-
-  .menu_page-list-item:nth-child(n+2) {
+  .market_box-link:nth-child(n+2) {
     margin-top: 15px;
   }
 
-  .menu_page-link {
+  .market_box-link {
     border-radius: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -355,60 +337,178 @@ html, body {
 
   .icon_market {
     height: 24px;
+    margin-right: 9px;
     margin-left: calc( 50% - 55px );
   }
 
-  .menu_page-link-text {
+  .market_box-link-text {
     font-size: 8px;
   }
 
-  .menu_page-text-up {
+  .market_box-text-up {
     font-weight: 400;
     line-height: 10px;
   }
 
-  .menu_page-text-down {
+  .market_box-text-down {
     font-weight: 700;
     line-height: 10px;
   }
 
-    /* Основной контент */
-    .sport_title {
-      padding-left: var( --side-padding-320 );
-      padding-right: var( --side-padding-320 );
-    }
+  /* Основной контент mobile */
 
-    .sport_article {
-      padding-left: var( --side-padding-320 );
-      padding-right: var( --side-padding-320 );
-    }
+  .sport_title {
+    font-size: 50px;
+    padding-left: var( --side-padding-320 );
+    padding-right: var( --side-padding-320 );
+    margin-bottom: 10px;
+  }
 
-    .sport_box {
-      margin: 0;
-      padding: 0;
-    }
+  .number {
+    font-size: 14px;
+  }
 
-    .sport_picture {
-      display: flex;
-    }
+  .number::after {
+    margin-top: 1px;
+    height: 4px;
+  }
 
-    .sport_img {
-      height: 240px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+  .sport_article {
+    padding-left: var( --side-padding-320 );
+    padding-right: var( --side-padding-320 );
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
 
-    .paragraph_img {
-      width: 100%;
-    }
+  .sport_article:nth-child(n+2) {
+    padding-top: 50px;
+  }
+
+  .sport_article-header {
+    margin-bottom: 20px;
+  }
+
+  .sport_article-title {
+    font-size: 23px;
+  }
+
+  .sport_box {
+    margin: 0;
+    padding: 0;
+  }
+
+  .sport_picture {
+    display: flex;
+  }
+
+  .sport_img {
+    height: 280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .paragraph_title {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+
+  .paragraph_number-box_desk-top {
+    display: none;
+  }
+
+  .paragraph_number-box {
+    left: var( --side-padding-320 );
+    width: 70px;
+    height: 70px;
+    bottom: -10px;
+  }
+
+  .paragraph_text {
+    padding-left: var( --side-padding-320 );
+    padding-right: var( --side-padding-320 );
+    padding-bottom: 70px;
+  }
+
+  .paragraph_number-text {
+    font-size: 14px;
+  }
+
+  .paragraph_img {
+    height: 350px;
+  }
+
+  .paragraph_text p {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  /* Подвал mobile */
+
+  .footer_page {
+    padding-top: 100px;
+    padding-bottom: 10px;
+    padding-left: var( --side-padding-320 );
+    padding-right: var( --side-padding-320 );
+  }
+
+  .footer-logo {
+    height: 74px;
+    width: 74px;
+    border-radius: 20px;
+    margin-bottom: 45px;
+  }
+
+  .logo-img-footer {
+    height: 50px;
+    margin: auto;
+  }
+
+  .logo_container-footer-up {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer_big-text {
+    font-size: 32px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+
+  .footer_box-logo {
+    min-width: 100%;
+    display: flex;
+  }
+
+  .footer_box-text {
+    margin-bottom: 73px;
+    min-width: 100%;
+  }
+
+  .logo_container-footer-down {
+    margin-top: 85px;
+  }
 }
 
+/* ----------------- */
+/* Стили для tablet */
+/* ----------------- */
+
 @media (min-width: 641px) and (max-width: 960px) {
-  /* Шапка сайта */
+
+  /* Фоновые изображения */
 
   .header_background {
     background-image: url("./sources/img/football_767.jpg");
   }
+
+  .footer_background {
+    background-image: url("./sources/img/game_767.jpg");
+  }
+
+  /* Шапка сайта tablet */
 
   .header_page {
     padding-left: var( --side-padding-640 );
@@ -419,26 +519,28 @@ html, body {
 
   .header_page-title {
     font-size: 64px;
-    margin-bottom: 310px;
+    margin-bottom: 295px;
   }
 
   .left {
     margin-left: 60px;
+    line-height: 1.25;
   }
 
   .right {
     margin-left: calc( 50% - 188px );
+    line-height: 1.25;
   }
 
   .logo-img-header {
-    height: 58px;
+    height: 55px;
   }
 
   .logo_container-header {
-    margin-bottom: 175px;
+    margin-bottom: 158px;
   }
 
-  .menu_page-list {
+  .market_box {
     margin: 0;
     padding-left: 25px;
     padding-right: 25px;
@@ -446,39 +548,511 @@ html, body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
-
-  .menu_page-list-item {
-    display: block;
-    min-width: calc(50% - 15px);
-  }
-
-  .menu_page-list-item:nth-child(n+3) {
-    margin-top: 15px;
+    align-items: stretch;
   }
 
   .icon_market {
     height: 45px;
+    padding-right: 40px;
+    flex: 0 0 auto;
   }
 
-  .menu_page-link {
+  .market_box-link {
+    flex: 0 1;
+    min-width: calc(50% - 15px);
+    justify-content: center;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-radius: 40px;
+  }
+
+  .market_box-link:nth-child(n+3) {
+    margin-top: 15px;
+  }
+
+  .market_box-link-text {
+    font-size: 14px;
+  }
+
+  .market_box-text-up {
+    font-weight: 400;
+    line-height: 18px;
+  }
+
+  .market_box-text-down {
+    font-weight: 700;
+    line-height: 18px;
+  }
+
+  /* Основной контент  tablet */
+
+  .sport {
+    padding-top: 80px;
+  }
+
+  .sport_article-title {
+    font-size: 35px;
+  }
+
+  .sport_img {
+    position: absolute;
+    height: 80%;
+  }
+
+  .sport:nth-child(odd) .sport_title,
+  .sport:nth-child(odd) .sport_article {
+    padding-left: calc( 50% - 93px );
+    padding-right: var( --side-padding-640 );
+  }
+
+  .sport:nth-child(odd) .sport_img {
+    left: 0;
+    top: 90px;
+  }
+
+  .sport:nth-child(even) .sport_title,
+  .sport:nth-child(even) .sport_article {
+    padding-right: calc( 50% - 95px );
+    padding-left: var( --side-padding-640 );
+  }
+
+  .sport:nth-child(even) .sport_img {
+    right: 0;
+    bottom: 90px;
+  }
+
+  .sport_title {
+    font-size: 80px;
+    line-height: 60px;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sport_article {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .sport_article * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .number {
+    font-size: 18px;
+  }
+
+  .number::after {
+    height: 5px;
+  }
+
+  .sport_article p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .paragraph_title {
+    font-size: 80px;
+    margin: 0;
+  }
+
+  .paragraph_img {
+    height: 585px;
+  }
+
+  .paragraph_number-box_desk-top {
+    display: none;
+  }
+
+  .paragraph_number-box {
+    left: var( --side-padding-640 );
+    width: 116px;
+    height: 116px;
+    bottom: -36px;
+  }
+
+  .paragraph_number-text {
+    font-size: 24px;
+  }
+
+  .paragraph_text {
+    padding-top: 60px;
+    padding-bottom: 72px;
+    padding-left: var( --side-padding-640 );
+    padding-right: var( --side-padding-640 );
+  }
+
+  .paragraph_text p {
+    margin-top: 8px;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  /* Подвал tablet */
+
+  .footer_page {
+    padding-top: 125px;
+    padding-bottom: 22px;
+    padding-left: var( --side-padding-640 );
+    padding-right: var( --side-padding-640 );
+  }
+
+  .footer-logo {
+    height: 137px;
+    width: 137px;
+    border-radius: 30px;
+    margin-bottom: 55px;
+  }
+
+  .logo-img-footer {
+    height: 84px;
+    margin: auto;
+  }
+
+  .logo_container-footer-up {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer_big-text {
+    font-size: 80px;
+  }
+
+  .footer_box-logo {
+    min-width: 100%;
+    display: flex;
+  }
+
+  .footer_box-text {
+    margin-bottom: 275px;
+    min-width: 100%;
+  }
+
+  .footer-text {
+    font-size: 36px;
+  }
+
+  .logo_container-footer-down {
+    margin-top: 50px;
+  }
+}
+
+/* ----------------- */
+/* Стили для desk top */
+/* ----------------- */
+
+@media (min-width: 961px) {
+
+  /* Фоновые изображения */
+
+  .header_background {
+    background-image: url("./sources/img/football_1920.jpg");
+  }
+
+  .footer_background {
+    background-image: url("./sources/img/game_1920.jpg");
+  }
+
+  /* Шапка сайта desk top */
+
+  .header_page {
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-top: 40px;
+    padding-bottom: 110px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header_page-title {
+    font-size: 90px;
+    margin-bottom: 180px;
+    line-height: 1.1;
+  }
+
+  .left {
+
+  }
+
+  .right {
+    margin-left: calc( 50% - 310px );
+  }
+
+  .logo-img-header {
+    height: 54px;
+  }
+
+  .logo_container-header {
+    margin-bottom: 270px;
+  }
+
+  .market_box {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .icon_market {
+    height: 50px;
+    margin-right: 30px;
+  }
+
+  .market_box-link {
+    flex: 1 1 auto;
+    max-width: 320px;
+    min-width: 240px;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 20px;
     justify-content: center;
     padding-top: 17px;
     padding-bottom: 17px;
     border-radius: 40px;
   }
 
-  .menu_page-link-text {
+  .market_box-link:hover {
+    box-shadow: 0 0 5px 2px #ffffff;
+  }
+
+  .market_box-link-text {
     font-size: 14px;
   }
 
-  .menu_page-text-up {
+  .market_box-text-up {
     font-weight: 400;
-    line-height: 18px;
+    line-height: 14px;
   }
 
-  .menu_page-text-down {
+  .market_box-text-down {
     font-weight: 700;
-    line-height: 18px;
+    line-height: 14px;
+  }
+
+  /* Основной контент  desk top */
+
+  .sport {
+    padding-top: 120px;
+  }
+
+  .sport_article {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .sport_article-title {
+    font-size: 36px;
+  }
+
+  .sport_img {
+    position: absolute;
+    height: 100%;
+  }
+
+  .sport:nth-child(odd) .sport_title,
+  .sport:nth-child(odd) .sport_article {
+    padding-left: 53%;
+    padding-right: 10vw;
+  }
+
+  .sport:nth-child(odd) .sport_img {
+    right: calc( ( 100% - 960px ) / 1.6 + 200px);
+    top: 30px;
+  }
+
+  .sport:nth-child(even) .sport_title,
+  .sport:nth-child(even) .sport_article {
+    padding-right: 53%;
+    padding-left: 10vw;
+  }
+
+  .sport:nth-child(even) .sport_img {
+    left: calc( ( 100% - 960px ) / 1.6 + 200px);
+    bottom: 30px;
+  }
+
+  .sport_title {
+    font-size: 80px;
+    line-height: 60px;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .sport_article * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .number {
+    font-size: 18px;
+  }
+
+  .number::after {
+    margin-top: 2px;
+    height: 5px;
+  }
+
+  .sport_article p {
+    font-size: 20px;
+    margin-top: 18px;
+    margin-bottom: 18px;
+  }
+
+  .paragraph_title {
+    font-size: 4vw;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+
+  .paragraph_number-box {
+    display: none;
+  }
+
+  .paragraph_number-box_desk-top {
+    visibility: visible;
+    left: calc( 50% - var( --width-960 ) / 2 );
+    top: 30%;
+    width: var(--width-960);
+    height: var(--height-960);
+    z-index: 1;
+  }
+
+  .paragraph_article {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .paragraph_text {
+    width: 50%;
+    padding-left: calc( var( --width-960 ) / 2 + 40px );
+    padding-right: 10vw;
+  }
+
+  .paragraph_article:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .paragraph_article:nth-child(even) .paragraph_text {
+    padding-left: 10vw;
+    padding-right: calc( var( --width-960 ) / 2 + 40px );
+  }
+
+  .paragraph-box {
+    width: 50%;
+  }
+
+  .paragraph_number-text {
+    font-size: 24px;
+  }
+
+  .paragraph_text p {
+    font-size: 24px;
+  }
+
+  /* Подвал desk top */
+
+  .footer_page {
+    padding-top: 225px;
+    padding-bottom: 50px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  .page-logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-logo {
+    margin: 0;
+    height: 137px;
+    width: 137px;
+    border-radius: 20px;
+    flex: 0 0 auto;
+  }
+
+  .logo-img-footer {
+    height: 84px;
+    margin: auto;
+  }
+
+  .logo_container-footer-up {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 115px;
+  }
+
+  .footer_big-text {
+    font-size: 80px;
+  }
+
+  .footer_box-logo {
+    min-width: 100%;
+    display: flex;
+  }
+
+  .footer_box-text {
+    flex: 0 0 auto;
+    margin-left: 25px;
+  }
+
+  .footer-text {
+    font-size: 36px;
+  }
+
+  .logo_container-footer-down {
+    margin-top: 255px;
+  }
+}
+
+/* ----------------- */
+/* Доп стили для desk top (ну потому, что не получается) */
+/* ----------------- */
+@media (min-width: 1200px) {
+
+  .paragraph_title {
+    margin-top: 35%;
+    margin-bottom: 15%;
+  }
+
+@media (min-width: 1920px) {
+
+  .header_page {
+    padding-right: var( --side-padding-960 );
+  }
+
+  .sport:nth-child(odd) .sport_title,
+  .sport:nth-child(odd) .sport_article {
+    padding-right: var( --side-padding-960 );
+  }
+
+  .sport:nth-child(even) .sport_title,
+  .sport:nth-child(even) .sport_article {
+    padding-left: var( --side-padding-960 );
+  }
+
+  .paragraph_text {
+    padding-right: var( --side-padding-960 );
+  }
+
+  .paragraph_article:nth-child(even) .paragraph_text {
+    padding-left: var( --side-padding-960 );
+  }
+
+  .paragraph_title {
+    font-size: 80px;
+  }
+
+  .footer_page {
+    padding-left: var( --side-padding-960 );
+    padding-right: var( --side-padding-960 );
   }
 }
